@@ -31,7 +31,7 @@ while (ui!=ci)
 
 }
 
-printf("  you guess it in %d times", gss);
+printf(" it was %d you guess it in %d times", ci, gss);
 
 return 0;
 }
