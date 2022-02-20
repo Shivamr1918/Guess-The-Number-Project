@@ -1,22 +1,32 @@
-package com.Projects;
+import java.util.Random; // For random
+import java.util.Scanner;//For user input
 
-import java.util.Random;
-import java.util.Scanner;
+// Making game  class 
+class game{
 
-class game1{
+    // for random number
     private int num;
+
+    // for user input
     private int inputNum;
+
+    // for guess
     private int noOfGuesses = 0;
 
-    game1(){
+    // Constructor for running random
+    game(){
         Random rd = new Random();
         this.num = rd.nextInt(100);
     }
-     void userInput(){
+     
+    // Getting user input
+    void userInput(){
         System.out.println("Guess the num : ");
         Scanner sc = new Scanner(System.in);
         inputNum = sc.nextInt();
     }
+
+    // For know guess or conditional
     boolean isCorrectNum(){
         noOfGuesses++;
         if (num==inputNum){
@@ -24,25 +34,27 @@ class game1{
             return true;
         }
         else if(inputNum<num){
-            System.out.println("Too low...");
+            System.out.println("Choose big num..");
         }
         else if(inputNum>num){
-            System.out.println("Too high...");
+            System.out.println("choose small num..");
         }
         return false;
     }
 
 }
 
-
-
-
-
-public class Guess_TheNumber {
+// main function
+public class guess_the_num {
     public static void main(String[] args) {
 
-        game1 g = new game1();
-         boolean b = false;
+        // run class
+        game g = new game();
+
+        // for running isCorrectNum function 
+         boolean b = false; // Because when guess draw its return true for running method we need to run false variable
+
+       // when true its close
        while (!b){
            g.userInput();
            b = g.isCorrectNum();
